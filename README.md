@@ -29,7 +29,9 @@ It also supports **CI/CD with Jenkins** for automated builds and deployments.
 ems/
 
 ├── employee_information/ # Django app for employee data
+
 ├── ems/ # Project settings
+
 ├── infra/ # Infrastructure automation (future use)
 
 ├── myenv/ # Virtual environment (local)
@@ -76,8 +78,17 @@ python manage.py migrate
 python manage.py runserver
 
 
+## ⚙️ Run with Docker & Docker Compose  
+
+
+```bash
+docker compose up --build
+Django app runs inside a container
+
+Nginx configured as a reverse proxy
+
+Access the app at: http://localhost/
+
+
 ---
-
-Access app at: http://127.0.0.1:8000/
-
 
