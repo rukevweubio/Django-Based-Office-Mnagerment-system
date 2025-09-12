@@ -27,10 +27,9 @@ It also supports **CI/CD with Jenkins** for automated builds and deployments.
 ## 📂 Project Structure
 
 ems/
+
 ├── employee_information/ # Django app for employee data
-
 ├── ems/ # Project settings
-
 ├── infra/ # Infrastructure automation (future use)
 
 ├── myenv/ # Virtual environment (local)
