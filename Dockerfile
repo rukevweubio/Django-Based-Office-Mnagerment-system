@@ -4,7 +4,9 @@ FROM python:3.12.6-alpine
 WORKDIR /app
 
 # Install system updates and clean up
-RUN apt-get update && apt-get upgrade -y && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+# Install system dependencies (Alpine uses apk, not apt-get)
+RUN apk add --no-cache gcc musl-dev libffi-dev libpq-dev
+
 
 # Copy requirements and install dependencies
 COPY requirements.txt .
@@ -17,8 +19,8 @@ COPY . .
 EXPOSE 8000
 
 # Run Django server
-ENTRYPOINT ["python", "manage.py"]
+ENTRYPOINT ["python"]
 
-CMD ["runserver", "0.0.0.0:8000"]
+CMD ["manage.py" , "runserver", "0.0.0.0:8000"]
 
 
