@@ -78,7 +78,7 @@ python manage.py migrate
 python manage.py runserver
 
 
-## ⚙️ Run with Docker & Docker Compose  
+### ⚙️ Run with Docker & Docker Compose  
 
 
 ```bash
