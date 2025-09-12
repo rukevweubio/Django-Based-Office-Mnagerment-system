@@ -77,32 +77,3 @@ python manage.py migrate
 # Start development server
 python manage.py runserver
 
-
-### ⚙️ Run with Docker & Docker Compose  
-
-```bash
-### ⚙️ Run with Docker & Docker Compose 
-docker compose up --build
-Django app runs inside a container
-
-Nginx configured as a reverse proxy
-
-Access the app at: http://localhost/
-
-
----
-
----
-```bash
-
-### ⚙️ Run with Docker & Docker Compose 
-docker compose up --build
-Django app runs inside a container
-
-Nginx configured as a reverse proxy
-
-Access the app at: http://localhost/
-  
-
----
-
