@@ -3,17 +3,6 @@
 A **Django-based Employee Management System** with containerized deployment using **Docker, Docker Compose, and Nginx**.  
 It also supports **CI/CD with Jenkins** for automated builds and deployments.  
 
----
-
-## 🚀 Features
-- User authentication & role-based access.  
-- Employee information management (CRUD).  
-- Responsive frontend with static assets.  
-- Containerized application with Docker.  
-- Nginx as a reverse proxy.  
-- CI/CD pipeline using Jenkins.  
-
----
 
 ## 🛠️ Tech Stack
 - **Backend:** Django (Python)  
