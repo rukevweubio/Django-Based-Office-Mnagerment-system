@@ -1,26 +1,28 @@
-FROM python:3.12.6-alpine
+#Base image
+FROM python:3.13-alpine AS builder 
 
 # Set working directory
 WORKDIR /app
 
-# Install system updates and clean up
-# Install system dependencies (Alpine uses apk, not apt-get)
-RUN apk add --no-cache gcc musl-dev libffi-dev libpq-dev
-
-
-# Copy requirements and install dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
-
 # Copy project files
-COPY . .
+COPY  . . 
 
-# Expose Django port
+# Copy requirements 
+COPY requirements.txt .
+
+#install dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+RUN python3 manage.py makemigrations
+RUN python3 manage.py migrate
+
+
+#Expose Django port
 EXPOSE 8000
 
 # Run Django server
-ENTRYPOINT ["python"]
+ENTRYPOINT [ "python3" ]
 
-CMD ["manage.py" , "runserver", "0.0.0.0:8000"]
+CMD [ "manage.py" , "runserver" ,"0.0.0.0:8000" ]
 
 
