@@ -18,7 +18,7 @@ RUN python3 manage.py migrate
 
 
 #Expose Django port
-EXPOSE 8000
+EXPOSE 8000  
 
 # Run Django server
 ENTRYPOINT [ "python3" ]
