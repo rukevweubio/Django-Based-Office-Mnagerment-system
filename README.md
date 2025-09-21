@@ -11,7 +11,7 @@ It also supports **CI/CD with Jenkins** for automated builds and deployments.
 - **Containerization:** Docker, Docker Compose  
 - **Web Server:** Nginx  
 - **CI/CD:** Jenkins  
-- **Infra as Code (IaC):** Terraform & Ansible (planned in `infra/`)
+- **Infra as Code (IaC):** Terraform  (planned in `infra/`)
 
 ## 📂 Project Structure
 
