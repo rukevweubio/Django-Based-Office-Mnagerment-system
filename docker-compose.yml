@@ -1,5 +1,22 @@
-services :
-  web :
-     image : app:latest
-     ports :
-         - "8000:8000"
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rukevweubio/ems-web:latest
+    container_name: ems-web
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: rukevweubio/ems-nginx:latest
+    container_name: ems-nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
