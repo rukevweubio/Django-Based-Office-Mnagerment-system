@@ -1,26 +1,24 @@
 # Ignore Python virtual environment
 myenv/
 
+# Ignore local database
 db.sqlite3
 
-
+# Ignore Python cache files
 *.pyc
 __pycache__/
 
+# Ignore everything else that is not a Kubernetes manifest
 *.md
 .Dockerignore
 Dockerfile
 Jenkinsfile
-myenv/bin/python
 .gitignore
 requirements.txt
 sonar-project.properties
 .github/
-workflows/deploy.yml
+workflows/
 nginx/
 ems/
 manage.py
 employee_information/
-myenv/
-myenv/bin/python
-.env
