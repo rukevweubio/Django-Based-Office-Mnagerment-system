@@ -8,7 +8,7 @@ db.sqlite3
 *.pyc
 __pycache__/
 
-# Ignore everything else that is not a Kubernetes manifest
+# Ignore source code, configs, CI/CD
 *.md
 .Dockerignore
 Dockerfile
@@ -22,3 +22,5 @@ nginx/
 ems/
 manage.py
 employee_information/
+static/
+infra/
