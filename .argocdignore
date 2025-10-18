@@ -13,3 +13,14 @@ __pycache__/
 .Dockerignore
 Dockerfile
 Jenkinsfile
+myenv/bin/python
+.gitignore
+requirements.txt
+sonar-project.properties
+.github/
+workflows/deploy.yml
+nginx/
+ems/
+manage.py
+employee_information/
+
