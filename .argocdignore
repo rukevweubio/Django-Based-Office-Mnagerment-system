@@ -1,0 +1,15 @@
+# Ignore Python virtual environment
+myenv/
+
+# Ignore local database
+db.sqlite3
+
+# Ignore Python cache files
+*.pyc
+__pycache__/
+
+# Ignore any other non-Kubernetes files
+*.md
+.Dockerignore
+Dockerfile
+Jenkinsfile
