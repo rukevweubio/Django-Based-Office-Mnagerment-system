@@ -33,12 +33,11 @@ kind: Service
 metadata:
   name: ems-nginx
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: ems-nginx
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-      nodePort: 30000
+      targetPort: 8o
 
