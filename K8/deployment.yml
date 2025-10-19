@@ -25,12 +25,12 @@ kind: Service
 metadata:
   name: ems-web
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: ems-web
   ports:
     - protocol: TCP
       port: 8000
       targetPort: 8000
-      nodePort: 30080
+      
 
