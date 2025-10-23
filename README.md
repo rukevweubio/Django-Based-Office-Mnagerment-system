@@ -227,3 +227,5 @@ jobs:
 ### Introduction to Trivy
 Trivy is an open-source vulnerability scanner for containers, code, and infrastructure. It helps identify security issues in Docker images, including outdated packages and known vulnerabilities, so you can fix them before deployment. Trivy is easy to use and integrates seamlessly into your CI/CD workflow for continuous security checks.
 
+![trivy scan](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2637).png)
+
