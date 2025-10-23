@@ -229,3 +229,23 @@ Trivy is an open-source vulnerability scanner for containers, code, and infrastr
 
 ![trivy scan](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2637).png)
 
+### step 4  Kubernates 
+ - create kubernates cluster  on azure  cloud
+```
+az login
+az group create --name MyResourceGroup --location eastus
+az aks create --resource-group MyResourceGroup --name MyAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+kubectl apply -f deployment.yaml
+kubectl get pods
+kubectl get services
+```
+### step  Deploy Portainer for Kubernetes Management
+Intro: Portainer provides a simple web interface to manage Kubernetes clusters, including viewing workloads, deploying applications, and monitoring resources.
+```
+kubectl create namespace portainer
+kubectl apply -n portainer -f https://downloads.portainer.io/portainer-k8s-lb.yaml
+kubectl get pods -n portainer
+kubectl get svc -n portainer
+
+```
