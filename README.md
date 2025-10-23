@@ -218,4 +218,6 @@ jobs:
 - Ensure the code compiles and all dependencies are installed.
 - Run SonarQube Scanner
 - Use SonarQube to analyze the code for bugs, code smells, vulnerabilities, and code coverage.
+- 
+![sonar cube](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2635).png)
   
