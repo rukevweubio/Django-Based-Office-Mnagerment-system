@@ -1,68 +1,11 @@
-# Employee Management System (EMS)
+# Django Application Deployment on Azure Kubernetes Service (AKS) with Portainer
 
-A **Django-based Employee Management System** with containerized deployment using **Docker, Docker Compose, and Nginx**.  
-It also supports **CI/CD with Jenkins** for automated builds and deployments.  
+### Project Overview
+This project outlines the deployment of a full-stack Django application on Azure Kubernetes Service (AKS) using Portainer as the Kubernetes management tool. The application consists of a frontend (likely a static or JavaScript-based UI), a Django backend for API and logic handling, and an Nginx server acting as a reverse proxy to route traffic between the frontend and backend, as well as handle external requests.
 
-
-## 🛠️ Tech Stack
-- **Backend:** Django (Python)  
-- **Frontend:** HTML, CSS, JS (Django Templates)  
-- **Database:** SQLite (can be extended to PostgreSQL/MySQL)  
-- **Containerization:** Docker, Docker Compose  
-- **Web Server:** Nginx  
-- **CI/CD:** Jenkins  
-- **Infra as Code (IaC):** Terraform  (planned in `infra/`)
-
-## 📂 Project Structure
-
-ems/
-
-├── employee_information/ # Django app for employee data
-
-├── ems/ # Project settings
-
-├── infra/ # Infrastructure automation (future use)
-
-├── myenv/ # Virtual environment (local)
-
-├── nginx/ # Nginx configuration
-
-├── static/ # Static files (CSS, JS, assets)
-
-├── Dockerfile # Docker image build file
-
-├── docker-compose.yml # Multi-container setup
-
-├── Jenkinsfile # CI/CD pipeline definition
-
-├── requirements.txt # Python dependencies
-
-├── manage.py # Django project runner
-
-└── README.md # Project documentation
-
-
----
-
-## ⚙️ Setup Instructions  
-
-### 1️⃣ Run Locally (Without Docker)  
-```bash
-# Clone repo
-git clone https://github.com/On-cloud7/ems.git
-cd ems
-
-# Create virtual environment
-python -m venv myenv
-source myenv/bin/activate   # Linux/Mac
-myenv\Scripts\activate      # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run migrations
-python manage.py migrate
-
-# Start development server
-python manage.py runserver
-
+Key features:
+- CI/CD Automation: Built and tested using GitHub Actions, with code quality analysis via SonarQube and vulnerability scanning via Trivy.
+- Containerization: The application components are containerized into Docker images.
+- Orchestration: Deployed on AKS for scalable, managed Kubernetes.
+- Management: Portainer provides a user-friendly web interface for deploying and managing Kubernetes resources.
+- Security and Best Practices: Integrates scanning tools to ensure secure images and code.
