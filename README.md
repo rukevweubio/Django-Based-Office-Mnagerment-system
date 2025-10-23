@@ -219,5 +219,8 @@ jobs:
 - Run SonarQube Scanner
 - Use SonarQube to analyze the code for bugs, code smells, vulnerabilities, and code coverage.
 - 
-![sonar cube](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2635).png)
-  
+![sonar cube](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2612).png)
+
+
+![sonar cube](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2624).png)
+
