@@ -259,3 +259,20 @@ kubectl get svc -n portainer
 ![portianer](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2647).png)
 
 ![portianer](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2640).png)
+
+
+###Step 6 Monitoring with Prometheus and Grafana
+Prometheus collects metrics from your applications and infrastructure, and Grafana visualizes these metrics in dashboards for monitoring and alerting.
+- Install Prometheus
+- Download Prometheus from the official website or use a package manager
+ 
+```
+wget https://github.com/prometheus/prometheus/releases/download/v2.x.x/prometheus-2.x.x.linux-amd64.tar.gz
+tar xvfz prometheus-2.x.x.linux-amd64.tar.gz
+cd prometheus-2.x.x.linux-amd64
+./prometheus --config.file=prometheus.yml
+
+```
+![prometheus install on aks cluster]()
+
+
