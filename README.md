@@ -273,6 +273,10 @@ cd prometheus-2.x.x.linux-amd64
 ./prometheus --config.file=prometheus.yml
 
 ```
-![prometheus install on aks cluster]()
+![prometheus install on aks cluster](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2658).png)
+
+![prometheus install on aks cluster](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2660).png)
+
+
 
 
