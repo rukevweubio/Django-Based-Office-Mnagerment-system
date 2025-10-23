@@ -36,8 +36,11 @@ The pipeline automates building, testing, and image pushing. Workflows are in .g
 
 Dockerfiles:
 - frontend/Dockerfile: Builds frontend (e.g., npm build for static files).
+- Build   dockerapp locally  by testing teh app on local
 - backend/Dockerfile: Installs Python dependencies, collects static files for Django.
 - nginx/Dockerfile: Configures Nginx with custom conf to proxy to backend/frontend.
+  
+![docker build locally](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2632).png)
 
 
 GitHub Actions Workflow:
