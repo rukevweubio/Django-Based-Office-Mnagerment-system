@@ -55,13 +55,22 @@ Build the Docker image for your application.
   ```
   ![docker build locally](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2632).png)
 
-GitHub Actions Workflow:
-- Trigger: On push to main or pull requests.
-- Checkout code.
-- Build Docker images: docker build -t <acr-repo>/frontend:latest ./frontend.
-- Similar for backend and nginx.
+  ![django app](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2631).png)
 
-Example snippet from workflow:
+### GitHub Actions and Workflow
+GitHub Actions is a CI/CD platform that automates building, testing, and deploying code directly in your GitHub repository.
+A workflow is an automated process defined in a YAML file (.github/workflows/) consisting of jobs (groups of tasks) and steps (individual tasks).
+
+### Project Workflow Steps:
+- Trigger: Runs on events like push or pull_request.
+- Checkout Code: Pull repository code using actions/checkout.
+- Set Up Environment: Install required tools and dependencies.
+- Run Tests: Execute automated tests to verify code quality.
+- Build Project: Compile or package the project.
+- Deploy (Optional): Deploy to staging or production if tests pass.
+- Notify / Report: Send status updates or alerts about the workflow.
+- Example snippet from workflow:
+
 ```
 name: Secure Build, Scan, and Push Django App
 
