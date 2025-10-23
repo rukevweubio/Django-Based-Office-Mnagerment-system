@@ -209,3 +209,4 @@ jobs:
       - name: Push final Nginx image
         run: docker push ${{ env.NGINX_IMAGE }}
 ```
+![Gitaction  workflow](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2636).png)
