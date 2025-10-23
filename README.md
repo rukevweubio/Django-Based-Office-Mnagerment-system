@@ -255,3 +255,7 @@ kubectl get svc -n portainer
 
 ```
 ![portianer deploy](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2671).png)
+
+![portianer](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2647).png)
+
+![portianer](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2640).png)
