@@ -40,8 +40,20 @@ Dockerfiles:
 - backend/Dockerfile: Installs Python dependencies, collects static files for Django.
 - nginx/Dockerfile: Configures Nginx with custom conf to proxy to backend/frontend.
   
-![docker build locally](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2632).png)
-
+### Step 1
+Build the Docker image for your application.
+- Test the application locally to ensure it runs as expected.
+- Expose the desired port to allow external access to the application.
+- Run the Docker container using the following command:
+  ```
+   docker compose --build
+   docker tag dockerimage:latest rukevweubio/djangoapp:latest
+   docker push rukevweubio/djangoapp:latest
+   docker run -d -p rukevweubio/djangoapp:latest
+   docker pull rukevweubio/djangoapp:latest
+  
+  ```
+  ![docker build locally](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2632).png)
 
 GitHub Actions Workflow:
 - Trigger: On push to main or pull requests.
