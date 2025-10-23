@@ -48,3 +48,140 @@ GitHub Actions Workflow:
 
 Example snippet from workflow:
 ```
+name: Secure Build, Scan, and Push Django App
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  WEB_IMAGE: rukevweubio/ems-web2:latest
+  NGINX_IMAGE: rukevweubio/ems-nginx2:latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      web_image: ${{ env.WEB_IMAGE }}
+      nginx_image: ${{ env.NGINX_IMAGE }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Django app image (no push)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          load: true
+          tags: ${{ env.WEB_IMAGE }}
+
+      - name: Build Nginx image (no push)
+        uses: docker/build-push-action@v5
+        with:
+          context: ./nginx
+          file: ./nginx/Dockerfile
+          push: false
+          load: true
+          tags: ${{ env.NGINX_IMAGE }}
+
+      - name: Save built images as artifacts
+        run: |
+          mkdir -p artifacts
+          docker save ${{ env.WEB_IMAGE }} -o artifacts/ems-web.tar
+          docker save ${{ env.NGINX_IMAGE }} -o artifacts/ems-nginx.tar
+
+      - name: Upload built images
+        uses: actions/upload-artifact@v4
+        with:
+          name: django-app-images
+          path: artifacts/
+
+  sonar-analysis:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+          # SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          projectBaseDir: .
+        
+
+  trivy-scan:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download built images
+        uses: actions/download-artifact@v4
+        with:
+          name: django-app-images
+          path: ./artifacts
+
+      - name: Load Docker images
+        run: |
+          docker load -i ./artifacts/ems-web.tar
+          docker load -i ./artifacts/ems-nginx.tar
+
+      - name: Scan Django app image
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: rukevweubio/ems-web:latest
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL'
+
+      - name: Scan Nginx image
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: rukevweubio/ems-nginx:latest
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL'
+
+  push-images:
+    runs-on: ubuntu-latest
+    needs: [trivy-scan, sonar-analysis]
+    if: ${{ success() }}
+    steps:
+      - name: Download images
+        uses: actions/download-artifact@v4
+        with:
+          name: django-app-images
+          path: ./artifacts
+
+      - name: Load Docker images
+        run: |
+          docker load -i ./artifacts/ems-web.tar
+          docker load -i ./artifacts/ems-nginx.tar
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push final Django app image
+        run: docker push ${{ env.WEB_IMAGE }}
+
+      - name: Push final Nginx image
+        run: docker push ${{ env.NGINX_IMAGE }}
+```
