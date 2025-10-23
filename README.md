@@ -210,3 +210,12 @@ jobs:
         run: docker push ${{ env.NGINX_IMAGE }}
 ```
 ![Gitaction  workflow](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2636).png)
+
+### Step 2: Code Quality and Security Analysis with SonarQube
+- Build the application
+- use sonarcube cloud
+-  connect the  repo  to sonarcube  cloud
+- Ensure the code compiles and all dependencies are installed.
+- Run SonarQube Scanner
+- Use SonarQube to analyze the code for bugs, code smells, vulnerabilities, and code coverage.
+  
