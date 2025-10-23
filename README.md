@@ -236,12 +236,17 @@ az login
 az group create --name MyResourceGroup --location eastus
 az aks create --resource-group MyResourceGroup --name MyAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+create namespace  dev 
 kubectl apply -f deployment.yaml
 kubectl get pods
 kubectl get services
 ```
 ### step  Deploy Portainer for Kubernetes Management
 Intro: Portainer provides a simple web interface to manage Kubernetes clusters, including viewing workloads, deploying applications, and monitoring resources.
+- connect  protianer to  aks cluster  using  gitrepo
+-  ensure the manifest file is on the repo
+- deploy  the manifest file on aks  with portainer
+   
 ```
 kubectl create namespace portainer
 kubectl apply -n portainer -f https://downloads.portainer.io/portainer-k8s-lb.yaml
@@ -249,3 +254,4 @@ kubectl get pods -n portainer
 kubectl get svc -n portainer
 
 ```
+![portianer deploy](https://github.com/rukevweubio/Django-Based-Office-Mnagerment-system/blob/main/photo/Screenshot%20(2671).png)
